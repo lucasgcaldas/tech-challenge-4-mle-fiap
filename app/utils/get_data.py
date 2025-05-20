@@ -4,6 +4,7 @@ from datetime import datetime
 def download_ibm_data(start='2018-01-01', path='data/stock_data.csv'):
     symbol = 'IBM'
     df = yf.download(symbol, start=start, end=datetime.now())
+    print(df.head())
     df.to_csv(path)
     print(f'Dados salvos em: {path}')
 

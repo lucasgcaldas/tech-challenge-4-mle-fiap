@@ -1,29 +1,53 @@
+version: '3.8'
+
 services:
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MODEL_PATH=/app/app/model/lstm_model.h5
+      - SCALER_PATH=/app/app/model/scaler_params.npy
+    volumes:
+      - ./app/model:/app/app/model
     container_name: stock_api
     networks:
       - monitor-net
+    restart: unless-stopped
+    depends_on:
+      - prometheus
 
   prometheus:
     image: prom/prometheus
     container_name: prometheus
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
     ports:
       - "9090:9090"
     networks:
       - monitor-net
+    restart: unless-stopped
 
   grafana:
     image: grafana/grafana
     container_name: grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
     ports:
       - "3000:3000"
     networks:
       - monitor-net
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+
+volumes:
+  prometheus_data:
+  grafana_data:
 
 networks:
   monitor-net:
