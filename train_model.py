@@ -14,14 +14,11 @@ X_train, y_train, X_test, y_test, scaler = load_and_prepare_data()
 
 # Arquitetura aprimorada do modelo
 model = Sequential([
-    Bidirectional(LSTM(100, return_sequences=True, 
-                     kernel_regularizer=L1L2(l1=0.01, l2=0.01),
-                     input_shape=(X_train.shape[1], 1))),
-    Dropout(0.3),
-    LSTM(75, return_sequences=False,
-        kernel_regularizer=L1L2(l1=0.01, l2=0.01)),
-    Dropout(0.3),
-    Dense(25, activation='relu'),
+    LSTM(128, return_sequences=True, input_shape=(X_train.shape[1], X_train.shape[2])),
+    Dropout(0.2),
+    LSTM(64),
+    Dropout(0.2),
+    Dense(32, activation='relu'),
     Dense(1)
 ])
 

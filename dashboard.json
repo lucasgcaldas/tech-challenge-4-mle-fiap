@@ -1,0 +1,107 @@
+{
+    "id": null,
+    "uid": null,
+    "title": "Stock Price Model - API Performance",
+    "tags": [
+        "stocks",
+        "api",
+        "prometheus",
+        "lstm"
+    ],
+    "timezone": "browser",
+    "schemaVersion": 30,
+    "version": 1,
+    "refresh": "10s",
+    "panels": [
+        {
+            "type": "stat",
+            "title": "Tempo Médio de Resposta (seg)",
+            "targets": [
+                {
+                    "expr": "rate(http_server_requests_duration_seconds_sum[1m]) / rate(http_server_requests_duration_seconds_count[1m])",
+                    "legendFormat": "Média",
+                    "refId": "A"
+                }
+            ],
+            "datasource": "Prometheus",
+            "gridPos": {
+                "x": 0,
+                "y": 0,
+                "w": 6,
+                "h": 4
+            }
+        },
+        {
+            "type": "stat",
+            "title": "Requisições por Segundo",
+            "targets": [
+                {
+                    "expr": "rate(http_requests_total[1m])",
+                    "legendFormat": "req/s",
+                    "refId": "A"
+                }
+            ],
+            "datasource": "Prometheus",
+            "gridPos": {
+                "x": 6,
+                "y": 0,
+                "w": 6,
+                "h": 4
+            }
+        },
+        {
+            "type": "graph",
+            "title": "Tempo de Resposta ao Longo do Tempo",
+            "targets": [
+                {
+                    "expr": "rate(http_server_requests_duration_seconds_sum[1m]) / rate(http_server_requests_duration_seconds_count[1m])",
+                    "legendFormat": "Tempo Médio",
+                    "refId": "A"
+                }
+            ],
+            "datasource": "Prometheus",
+            "gridPos": {
+                "x": 0,
+                "y": 4,
+                "w": 12,
+                "h": 6
+            }
+        },
+        {
+            "type": "stat",
+            "title": "Uso da CPU (%)",
+            "targets": [
+                {
+                    "expr": "100 - (avg by (instance)(rate(node_cpu_seconds_total{mode=\"idle\"}[1m])) * 100)",
+                    "legendFormat": "CPU",
+                    "refId": "A"
+                }
+            ],
+            "datasource": "Prometheus",
+            "gridPos": {
+                "x": 0,
+                "y": 10,
+                "w": 6,
+                "h": 4
+            }
+        },
+        {
+            "type": "stat",
+            "title": "Uso de Memória (%)",
+            "targets": [
+                {
+                    "expr": "100 * (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes))",
+                    "legendFormat": "RAM",
+                    "refId": "A"
+                }
+            ],
+            "datasource": "Prometheus",
+            "gridPos": {
+                "x": 6,
+                "y": 10,
+                "w": 6,
+                "h": 4
+            }
+        }
+    ]
+}

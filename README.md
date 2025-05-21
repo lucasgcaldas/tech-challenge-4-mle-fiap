@@ -146,3 +146,38 @@ docker run -d -p 8000:8000 ibm-stock-api
 Projeto desenvolvido por \[Seu Nome].
 📧 Email: [seu.email@exemplo.com](mailto:seu.email@exemplo.com)
 🔗 LinkedIn: [linkedin.com/in/seu-usuario](https://linkedin.com/in/seu-usuario)
+
+
+##
+
+V1 (Usando Bidirectional)
+📊 Avaliação do Modelo:
+MAE  (Erro Absoluto Médio):        71.68
+RMSE (Raiz do Erro Quadrático):    80.24
+MAPE (Erro Percentual Médio):      38.15%
+R²   (Coeficiente de Determinação): -3.9519
+
+V2
+📊 Avaliação do Modelo:
+MAE  (Erro Absoluto Médio):        6.26
+RMSE (Raiz do Erro Quadrático):    8.54
+MAPE (Erro Percentual Médio):      3.33%
+R²   (Coeficiente de Determinação): 0.9439
+
+V3
+📊 Avaliação do Modelo:
+MAE  (Erro Absoluto Médio):        3.14
+RMSE (Raiz do Erro Quadrático):    4.56
+MAPE (Erro Percentual Médio):      1.71%
+R²   (Coeficiente de Determinação): 0.9840
+
+.
+.
+.
+
+V4 (FINAL)
+📊 Avaliação do Modelo:
+MAE  (Erro Absoluto Médio):        4.01
+RMSE (Raiz do Erro Quadrático):    5.92
+MAPE (Erro Percentual Médio):      2.17%
+R²   (Coeficiente de Determinação): 0.9730

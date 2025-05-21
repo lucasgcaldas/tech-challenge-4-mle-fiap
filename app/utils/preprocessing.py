@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 
-def load_and_prepare_data(path='data/stock_data.csv', sequence_length=60, test_size=0.2, random_state=42):
+def load_and_prepare_data(path='data/stock_data.csv', sequence_length=60, test_size=0.25):
     """
     Carrega e prepara dados para modelo LSTM
     
@@ -11,7 +11,6 @@ def load_and_prepare_data(path='data/stock_data.csv', sequence_length=60, test_s
     - path: caminho para o arquivo CSV
     - sequence_length: tamanho da janela temporal
     - test_size: proporção dos dados para teste
-    - random_state: seed para reprodutibilidade
     
     Retorna:
     - X_train, y_train: dados de treino
