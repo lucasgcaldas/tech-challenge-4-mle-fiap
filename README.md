@@ -181,3 +181,11 @@ MAE  (Erro Absoluto Médio):        4.01
 RMSE (Raiz do Erro Quadrático):    5.92
 MAPE (Erro Percentual Médio):      2.17%
 R²   (Coeficiente de Determinação): 0.9730
+
+20/05
+
+{
+  "predicted_price": 264.74,
+  "confidence": 95.97,
+  "status": "success"
+}
