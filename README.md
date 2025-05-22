@@ -189,3 +189,13 @@ R²   (Coeficiente de Determinação): 0.9730
   "confidence": 95.97,
   "status": "success"
 }
+
+21/05
+
+real: 268.4100036621094
+
+{
+  "predicted_price": 267.49,
+  "confidence": 95.86,
+  "status": "success"
+}
