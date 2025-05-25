@@ -199,3 +199,43 @@ real: 268.4100036621094
   "confidence": 95.86,
   "status": "success"
 }
+
+22/05
+
+real: 260.8699951171875
+
+{
+  "predicted_price": 269.79,
+  "confidence": 95.78,
+  "status": "success"
+}
+
+23/05
+
+real: 258.3699951171875
+
+{
+  "predicted_price": 270.96,
+  "confidence": 95.74,
+  "status": "success"
+}
+
+24/05
+
+real: 258.6300048828125
+
+{
+  "predicted_price": 271.11,
+  "confidence": 95.72,
+  "status": "success"
+}
+
+25/05
+
+real:
+
+{
+  "predicted_price": 270.71,
+  "confidence": 95.68,
+  "status": "success"
+}
