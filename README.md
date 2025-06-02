@@ -1,6 +1,14 @@
 # tech-challenge-4-mle-fiap
-Modelo preditivo de redes neurais Long Short Term Memory (LSTM) para predizer o valor de fechamento da bolsa de valores de uma empresa à sua escolha e realizar toda a pipeline de desenvolvimento, desde a criação do modelo preditivo até o deploy do modelo em uma API que permita a previsão de preços de ações.
 
+## Integrantes Grupo 42
+
+- Lucas Gomes - RM358850
+
+## 📽️ Demonstração em Vídeo
+
+📺 Vídeo explicativo: https://youtu.be/p6jcjaGJ3Zc
+
+Modelo preditivo de redes neurais Long Short Term Memory (LSTM) para predizer o valor de fechamento da bolsa de valores de uma empresa e realizar toda a pipeline de desenvolvimento, desde a criação do modelo preditivo até o deploy do modelo em uma API que permita a previsão de preços de ações.
 
 # 📈 Stock Price Prediction API with LSTM
 
@@ -16,29 +24,6 @@ Este projeto utiliza redes neurais recorrentes (LSTM) para prever o **preço de 
 - 🔁 Avaliação com métricas: MAE, RMSE e MAPE
 - 🌐 API RESTful para predição via HTTP POST
 - 🐳 Deploy com Docker
-
----
-
-## 🏗️ Estrutura do Projeto
-
-```
-
-stock-lstm-api/
-├── app/
-│   ├── main.py               # Código da API
-│   ├── model/
-│   │   └── lstm\_model.h5     # Modelo treinado salvo
-│   └── utils/
-│       ├── get\_data.py       # Coleta de dados da IBM
-│       └── preprocessing.py  # Funções de preparação de dados
-├── data/
-│   └── stock\_data.csv        # Dados históricos baixados
-├── train\_model.py            # Treinamento do modelo LSTM
-├── Dockerfile                # Imagem para container Docker
-├── requirements.txt          # Dependências do projeto
-└── README.md
-
-````
 
 ---
 
@@ -135,107 +120,116 @@ docker run -d -p 8000:8000 ibm-stock-api
 
 ---
 
-## 📽️ Demonstração em Vídeo
+## Métricas
 
-📺 Assista ao vídeo explicativo: \[link\_YouTube\_ou\_Loom\_aqui]
+### 🔸 **V1 – Usando Bidirectional**
+
+* **MAE**: 71.68
+* **RMSE**: 80.24
+* **MAPE**: 38.15%
+* **R²**: -3.9519 ❌
+  🔍 *Modelo com desempenho insatisfatório – erros muito altos.*
 
 ---
 
-## 📬 Contato
+### 🔸 **V2**
 
-Projeto desenvolvido por \[Seu Nome].
-📧 Email: [seu.email@exemplo.com](mailto:seu.email@exemplo.com)
-🔗 LinkedIn: [linkedin.com/in/seu-usuario](https://linkedin.com/in/seu-usuario)
+* **MAE**: 6.26
+* **RMSE**: 8.54
+* **MAPE**: 3.33%
+* **R²**: 0.9439 ✅
+  🔧 *Boa melhora, porém ainda impreciso em alguns pontos.*
 
+---
 
-##
+### 🔸 **V3**
 
-V1 (Usando Bidirectional)
-📊 Avaliação do Modelo:
-MAE  (Erro Absoluto Médio):        71.68
-RMSE (Raiz do Erro Quadrático):    80.24
-MAPE (Erro Percentual Médio):      38.15%
-R²   (Coeficiente de Determinação): -3.9519
+* **MAE**: 3.14
+* **RMSE**: 4.56
+* **MAPE**: 1.71%
+* **R²**: 0.9840 ✅
+  ⚡ *Modelo mais preciso e consistente.*
 
-V2
-📊 Avaliação do Modelo:
-MAE  (Erro Absoluto Médio):        6.26
-RMSE (Raiz do Erro Quadrático):    8.54
-MAPE (Erro Percentual Médio):      3.33%
-R²   (Coeficiente de Determinação): 0.9439
+---
 
-V3
-📊 Avaliação do Modelo:
-MAE  (Erro Absoluto Médio):        3.14
-RMSE (Raiz do Erro Quadrático):    4.56
-MAPE (Erro Percentual Médio):      1.71%
-R²   (Coeficiente de Determinação): 0.9840
+### 🔸 **V4 (FINAL)**
 
-.
-.
-.
+* **MAE**: 4.01
+* **RMSE**: 5.92
+* **MAPE**: 2.17%
+* **R²**: 0.9730 ✅
+  🚀 *Modelo robusto e balanceado, escolhido para produção.*
 
-V4 (FINAL)
-📊 Avaliação do Modelo:
-MAE  (Erro Absoluto Médio):        4.01
-RMSE (Raiz do Erro Quadrático):    5.92
-MAPE (Erro Percentual Médio):      2.17%
-R²   (Coeficiente de Determinação): 0.9730
+---
 
-20/05
+## 📅 Resultados Diários
 
-{
-  "predicted_price": 264.74,
-  "confidence": 95.97,
-  "status": "success"
-}
+### 🔹 **20/05**
 
-21/05
+* **Previsto**: 264.74
 
-real: 268.4100036621094
+---
 
-{
-  "predicted_price": 267.49,
-  "confidence": 95.86,
-  "status": "success"
-}
+### 🔹 **21/05**
 
-22/05
+* **Previsto**: 267.49
+* **Real**: 268.41
+* **Erro Absoluto**: |267.49 - 268.41| = **0.92**
+* **Erro Percentual**: (0.92 / 268.41) × 100 = **0.34%**
 
-real: 260.8699951171875
+---
 
-{
-  "predicted_price": 269.79,
-  "confidence": 95.78,
-  "status": "success"
-}
+### 🔹 **22/05**
 
-23/05
+* **Previsto**: 269.79
+* **Real**: 260.87
+* **Erro Absoluto**: |269.79 - 260.87| = **8.92**
+* **Erro Percentual**: (8.92 / 260.87) × 100 = **3.42%**
 
-real: 258.3699951171875
+---
 
-{
-  "predicted_price": 270.96,
-  "confidence": 95.74,
-  "status": "success"
-}
+### 🔹 **23/05**
 
-24/05
+* **Previsto**: 270.96
+* **Real**: 258.37
+* **Erro Absoluto**: |270.96 - 258.37| = **12.59**
+* **Erro Percentual**: (12.59 / 258.37) × 100 = **4.87%**
 
-real: 258.6300048828125
+---
 
-{
-  "predicted_price": 271.11,
-  "confidence": 95.72,
-  "status": "success"
-}
+### 🔹 **24/05**
 
-25/05
+* **Previsto**: 271.11
+* **Real**: 258.63
+* **Erro Absoluto**: |271.11 - 258.63| = **12.48**
+* **Erro Percentual**: (12.48 / 258.63) × 100 = **4.82%**
 
-real:
+---
 
-{
-  "predicted_price": 270.71,
-  "confidence": 95.68,
-  "status": "success"
-}
+### 🔹 **25/05**
+
+* **Previsto**: 270.71
+* **Real**: *não disponível*
+* ✅ *Aguardando valor real*
+
+---
+
+## 📌 Resumo dos Erros Observados (21/05 a 24/05)
+
+| Data  | Real   | Previsto | Erro Absoluto | Erro Percentual |
+| ----- | ------ | -------- | ------------- | --------------- |
+| 21/05 | 268.41 | 267.49   | 0.92          | 0.34%           |
+| 22/05 | 260.87 | 269.79   | 8.92          | 3.42%           |
+| 23/05 | 258.37 | 270.96   | 12.59         | 4.87%           |
+| 24/05 | 258.63 | 271.11   | 12.48         | 4.82%           |
+
+📈 **Média dos Erros Reais (21 a 24/05)**:
+
+* **MAE real**: (0.92 + 8.92 + 12.59 + 12.48) / 4 = **8.23**
+* **MAPE real**: (0.34 + 3.42 + 4.87 + 4.82) / 4 = **3.86%**
+
+---
+
+## 📌 Observação Final
+
+➡️ Embora o modelo tenha um **MAPE médio de 2.17% nos dados de teste**, nos últimos dias os erros percentuais **aumentaram para uma média de 3.86%**, indicando uma possível mudança no comportamento do mercado ou a necessidade de **reajuste/atualização dos dados** de treino.
